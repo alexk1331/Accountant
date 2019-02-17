@@ -20,9 +20,30 @@ namespace Accountant
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainWindowViewModel mv=new MainWindowViewModel();
+
         public MainWindow()
         {
+            DataContext = mv;
             InitializeComponent();
+            mv = new MainWindowViewModel(titlegrid, mainttabcc, DateTime.Now);
+            DataContext = mv;
+
+        }
+
+        private void eventslist_Click(object sender, RoutedEventArgs e)
+        {
+            mv.eventlistdraw();
+
+        }
+        private void calendar_Click(object sender, RoutedEventArgs e)
+        {
+            
+            mv.monthdaraw();
+        }
+        private void statlist_Click(object sender, RoutedEventArgs e)
+        {
+            mv.statisticdraw();
         }
     }
 }

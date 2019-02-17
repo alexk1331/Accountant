@@ -4,9 +4,54 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Accountant"
+       
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="700">
+
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style TargetType="Expander">
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <Grid Name="calendargrid" Grid.Column="0" Grid.Row="1" >
+            <ContentControl Name="mainttabcc" Content="{Binding }">
+
+
+            </ContentControl>
+        </Grid>
+
+        <Grid Name="titlegrid">
+            
+        </Grid>
+        <StackPanel Grid.Column="1" Grid.Row="1" Margin="10, 0, 2, 0" >
+            <Button Name="calendarb" MinHeight="60"  Click="calendar_Click">Календарь</Button>
+            <Button Name="plistb" MinHeight="60" Click="eventslist_Click">Список</Button>
+            <Button Name="statb" MinHeight="60" Click="statlist_Click">Статистика</Button>
+        </StackPanel>
     </Grid>
 </Window>
